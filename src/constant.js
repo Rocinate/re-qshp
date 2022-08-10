@@ -9,7 +9,7 @@ export const theme = {
   },
   dim: {
     label: 'dim',
-    color: '#17202A';
+    color: '#17202A'
   }
 }
 
