@@ -8,7 +8,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const TopBar = () => {
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="static" color="transparent" className="h-16">
       <div className="flex flex-row py-2 px-8">
         <div className="basis-1/4">LOGO</div>
         <div className="basis-1/2">
