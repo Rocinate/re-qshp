@@ -21,6 +21,10 @@ const Form = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [token, setToken] = useState(null);
   const { register, handleSubmit } = useForm();
+
+  const site_key = import.meta.env.PROD
+    ? import.meta.env.VITE_RECAPTCHA_KEY_PRODUCTION
+    : import.meta.env.VITE_RECAPTCHA_KEY;
   // const { isLoading, isSuccess, isError, data, error} = useQuery('login', login, )
 
   const handleTabChange = (event, value) => {
@@ -128,7 +132,7 @@ const Form = (props) => {
             }}
           >
             <ReCAPTCHA
-              sitekey={import.meta.env.VITE_RECAPTCHA_KEY}
+              sitekey={site_key}
               onChange={onTokenChange}
             />
           </div>
