@@ -30,7 +30,11 @@ jobs:
           cache: 'yarn'
 
       - name: set up env
-        run: ${{secrets.ENV_LOCAL}} > .env.local
+        run: |
+          pwd
+          ${{secrets.ENV_LOCAL}} > .env.local
+          stat .env.local
+          
 
       - name: yarn
         run: yarn install
