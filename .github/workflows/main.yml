@@ -30,9 +30,9 @@ jobs:
           cache: 'yarn'
 
       - name: set up env
-        run: |
-          echo ${{secrets.ENV_LOCAL}} > .env.local
-          stat .env.local
+        env: 
+          ENV_LOCAL: ${{secrets.ENV_LOCAL}}
+        run: echo $ENV_LOCAL > .env.local
           
 
       - name: yarn
