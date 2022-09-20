@@ -1,19 +1,14 @@
 
 
-import About from "@/pages/About";
-import Home from "@/pages/Home";
+import About from "@/pages/About/About";
+import Home from "@/pages/Home/Home";
 import Login from "@/pages/Login/Login";
-import Main from "@/pages/Main";
-import NotFound from '@/pages/NotFound'
+import NotFound from '@/pages/ErrorPage/NotFound'
 
 const routes = [
     {
       path: "/",
       component: Home,
-    },
-    {
-      path: "/main",
-      component: Main,
     },
     {
       path: "/login",

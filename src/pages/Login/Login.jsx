@@ -23,7 +23,7 @@ const Login = () => {
   const [userList, setUserList] = useState([1, 2, 3]);
 
   const login = (data) => {
-    console.log(data);
+    console.log(data)
   };
 
   const chooseUser = (data) => {

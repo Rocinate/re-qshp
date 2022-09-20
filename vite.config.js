@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/dev' : 'http://127.0.0.1:4523/mock/1045892/',
+      '/dev' : 'http://bbs.abrac.site/api/',
     }
   },
 })
