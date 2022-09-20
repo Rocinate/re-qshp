@@ -31,8 +31,7 @@ jobs:
 
       - name: set up env
         run: |
-          pwd
-          ${{secrets.ENV_LOCAL}} > .env.local
+          echo ${{secrets.ENV_LOCAL}} > .env.local
           stat .env.local
           
 
