@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = process.env.NODE_ENV === "production" ? "/dev" : "/api";
+const baseUrl = (import.meta.env.PROD ? "" : "/dev") + "/star/sso/api";
+
 const statusCode = {
   tokenExpire: 401,
   responseSuccess: 200

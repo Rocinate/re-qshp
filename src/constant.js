@@ -1,7 +1,7 @@
 export const theme = {
   white: {
     label: 'white',
-    color: '#ffffff'
+    color: '#eeeeee'
   },
   dark: {
     label: 'dark',
