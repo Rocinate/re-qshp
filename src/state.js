@@ -35,6 +35,8 @@ const reducer = (state, action) => {
       return { ...state, navlist: action.payload};
     case 'set theme': 
       return {...state, theme: action.payload}
+    case 'set drawer':
+      return {...state, drawer: !state.drawer}
     default:
       return state;
   }
@@ -42,11 +44,13 @@ const reducer = (state, action) => {
 
 const initialState = {
   messages: {
-    unread_count: 0
+    unread_count: 1
   },
-  navlist: [],
+  // 侧边栏是否打开
+  drawer: true,
+  navList: [],
   users: {
-    uid: '',
+    uid: '1',
     name: ''
   },
   theme: 'white' // dark, blue, dinned

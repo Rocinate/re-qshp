@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ClassNames } from "@emotion/react";
 
 const Search = (props) => {
+  // const [] = useContext()
+
   const [searchText, setSearchText] = useState("");
   const [timer, setTimer] = useState(null);
 
@@ -44,9 +45,9 @@ const Search = (props) => {
           onChange={(event) => setSearchText(event.target.value)}
         />
       </Stack>
-      <Backdrop>
+      {/* <Backdrop>
         
-      </Backdrop>
+      </Backdrop> */}
     </>
   );
 };

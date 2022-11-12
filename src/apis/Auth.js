@@ -1,25 +1,26 @@
 import request from "@/utils/request";
 
-const commonUrl = "SSO";
+const commonUrl = "common";
 
-const login = (params) => {
-//   request.interceptors.request.use(
-//     (config) => {
-//       config.headers["reCAPTCHA"] = params.token;
-//       return config;
-//     },
-//     function (error) {
-//       return Promise.reject(error);
-//     }
-//   );
-  return request.post(`${commonUrl / login}`, params);
+const forum = (params) => {
+  return request.get(`${commonUrl}/forum`, {params: params});
+}
+
+const bulletin = (params) => {
+  return request.get(`${commonUrl}/bulletin`, { params: params });
 };
 
-const user = (params) => {
-  return request.get(`${commonUrl / user}`, { params: params });
-};
+const search = (params) => {
+  return request.get(`${commonUrl}/search`, {params: params});
+}
+
+const attachment = (params) => {
+  return request.post(`${commonUrl}/attachment`, params)
+}
 
 export default {
-  login,
-  user,
+  forum,
+  bulletin,
+  search,
+  attachment
 };
