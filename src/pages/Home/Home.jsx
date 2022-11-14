@@ -29,6 +29,7 @@ function Home() {
 
   useEffect(() => {
     console.log(moment().format('LLLL'))
+    console.log(moment().valueOf())
   }, [])
 
   const handleTabClick = (event, newValue) => {

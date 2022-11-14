@@ -11,6 +11,7 @@ import {
   Skeleton,
   styled,
   Collapse,
+  useTheme
 } from "@mui/material";
 
 import MuiDrawer from "@mui/material/Drawer";
@@ -21,6 +22,9 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { useAppState } from "@/state";
 import { theme } from "../../constant";
+import { BoltRounded } from "@mui/icons-material";
+
+const menuFontStyle = {fontSize: '1rem',fontWeight: 'bold'}
 
 const Ordinate = ({ data }) => {
   const [open, setOpen] = useState(false);
@@ -33,7 +37,7 @@ const Ordinate = ({ data }) => {
     <>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
-        <ListItemText primary={data.name} />
+        <ListItemText primary={data.name} primaryTypographyProps={menuFontStyle} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -41,7 +45,7 @@ const Ordinate = ({ data }) => {
           {data.subordinates.map((item) => (
             <ListItemButton sx={{ pl: 4 }} key={item.name}>
               <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.name} primaryTypographyProps={menuFontStyle} />
             </ListItemButton>
           ))}
         </List>
@@ -63,7 +67,7 @@ const Sections = () => {
         <List>
           <ListItemButton onClick={toHome}>
             <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
-            <ListItemText primary="首页" />
+            <ListItemText primary="首页" primaryTypographyProps={menuFontStyle}/>
           </ListItemButton>
           {data.map((item) => (
             <Ordinate key={item.name} data={item} />
@@ -112,13 +116,16 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const LeftDrawer = () => {
+    const theme = useTheme()
   const [state, dispatch] = useAppState();
 
   return (
     <Drawer variant="permanent" open={state.drawer} PaperProps={{
-        // sx: {
-        //     background: theme.
-        // }
+        sx: {
+            background: "#e2e8f0",
+            border: "none",
+            color: '#7082a7'
+        }
     }}>
       <Box>
         <Toolbar />
