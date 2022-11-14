@@ -20,6 +20,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 
 import { useState } from "react";
 import { useAppState } from "@/state";
+import { theme } from "../../constant";
 
 const Ordinate = ({ data }) => {
   const [open, setOpen] = useState(false);
@@ -98,7 +99,6 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
-  backgroundColor: '#eeeeee',
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {
@@ -115,7 +115,11 @@ const LeftDrawer = () => {
   const [state, dispatch] = useAppState();
 
   return (
-    <Drawer variant="permanent" open={state.drawer}>
+    <Drawer variant="permanent" open={state.drawer} PaperProps={{
+        // sx: {
+        //     background: theme.
+        // }
+    }}>
       <Box>
         <Toolbar />
         {/* {loading} */}

@@ -8,7 +8,6 @@ import routes from "@/route";
 const Layout = () => {
   return (
     <>
-      {/* <Box className="relative" style={{ height: "calc(100% - 4rem)" }}> */}
       <Box className="relative h-full flex">
         <TopBar />
         <Drawer />

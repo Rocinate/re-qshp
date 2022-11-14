@@ -4,7 +4,7 @@ import Cookie from 'js-cookie'
 
 import useAppStateContext, { AppContext } from "./state";
 import Layout from "./pages/Layout"
-
+import moment from "./utils/moment"
 
 const queryClient = new QueryClient();
 
@@ -12,10 +12,15 @@ function App() {
   const [state, dispatch] = useAppStateContext()
 
   useEffect(() => {
-    // if (Cookie.get("token") === undefined) {
-      // window.location.replace("/login")
-    // } else {
-    // }
+    const baseCatch = localStorage.getItem("base_catch")
+
+    if (!baseCatch) {
+      return;
+    }
+
+    if (moment(baseCatch.expire).isBefore(moment().add(1, 'h'))) {
+      // refreshCookie()
+    }
   })
 
   return (
