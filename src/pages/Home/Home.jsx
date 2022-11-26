@@ -2,8 +2,6 @@ import { Box, Typography, List, Stack, Divider, Tabs, Tab } from "@mui/material"
 import { useAppState } from "@/state";
 import { useEffect, useState } from "react";
 
-import Broadcast from "@/components/Broadcast";
-import Announcement from "@/components/Announcement";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 
 import moment from 'moment'
@@ -64,7 +62,6 @@ function Home() {
           </List>
         </Box>
       </Box>
-      {/* <Announcement /> */}
     </Box>
   );
 }

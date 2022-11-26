@@ -1,6 +1,7 @@
-import { Box, Typography, Avatar, Stack, Chip } from "@mui/material";
+import { Box, Typography, Avatar, Stack } from "@mui/material";
 import UserCard from "./UserCard";
 import moment from "moment";
+import Chip from "./Chip";
 
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
@@ -22,10 +23,7 @@ const Post = ({ data }) => {
           <Stack justifyContent="space-between">
             <Stack direction="row">
               <Chip
-                label="primary"
-                size="small"
-                color="primary"
-                sx={{ mr: 1 }}
+                text="等级"
               />
               <Typography>{data.subject}</Typography>
             </Stack>
