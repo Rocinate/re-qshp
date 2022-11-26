@@ -6,11 +6,12 @@ import {
   CardHeader,
   Button,
   Grid,
-  Menu
+  Stack,
+  Menu,
 } from "@mui/material";
 import PopupState, { bindHover, bindMenu } from "material-ui-popup-state";
-import avatarBg from "@/assets/avatar-bg.jpg";
-import HoverMenu from 'material-ui-popup-state/HoverMenu'
+import avatarBg from "../assets/avatar-bg.jpg";
+import HoverMenu from "material-ui-popup-state/HoverMenu";
 import { Box } from "@mui/system";
 
 const UserCard = ({ data }) => {
@@ -26,24 +27,40 @@ const UserCard = ({ data }) => {
               {data.author}
             </Typography>
             <HoverMenu {...bindMenu(popupState)}>
-              <Card>
-                <CardHeader>
-                  {/* <img src={avatarBg} alt="avatar" height={200}/> */}
-                  <Typography>123421</Typography>
-                </CardHeader>
-                <CardContent>
+              <Box style={{ width: "50rem" }}>
+                <Box style={{ backgroundImage: `url(${avatarBg})` }}>
+                  {/* <img  */}
+                  <Stack direction="row">
+                    <Box className="p-5">
+                      <img
+                        src="https://mui.com/static/images/avatar/1.jpg"
+                        height="80"
+                        width="80"
+                      />
+                    </Box>
+                    <Box className="p-5">
+                      <Typography>123421</Typography>
+                      <Typography>在线时间</Typography>
+                    </Box>
+                  </Stack>
+                </Box>
+                <Box>
                   <Grid container spacing={0}>
-                    <Grid item md={4}></Grid>
-                    <Grid item md={4}></Grid>
-                    <Grid item md={4}></Grid>
-                    <Grid item md={4}></Grid>
-                    <Grid item md={4}></Grid>
+                    <Grid item md={3}>
+                      水滴
+                    </Grid>
+                    <Grid item md={3}>
+                      精华
+                    </Grid>
+                    <Grid item md={3}>
+                      发帖
+                    </Grid>
+                    <Grid item md={3}>
+                      威望
+                    </Grid>
                   </Grid>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Zone</Button>
-                </CardActions>
-              </Card>
+                </Box>
+              </Box>
             </HoverMenu>
           </Box>
         )}
