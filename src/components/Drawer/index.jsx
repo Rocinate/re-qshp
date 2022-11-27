@@ -33,6 +33,10 @@ const Ordinate = ({ data }) => {
     setOpen(!open);
   };
 
+  const selectSection = () => {
+  
+  }
+
   return (
     <>
       <ListItemButton onClick={handleClick}>
@@ -43,7 +47,7 @@ const Ordinate = ({ data }) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {data.subordinates.map((item) => (
-            <ListItemButton sx={{ pl: 4 }} key={item.name}>
+            <ListItemButton sx={{ pl: 4 }} key={item.name} onClick={selectSection}>
               <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
               <ListItemText primary={item.name} primaryTypographyProps={menuFontStyle} />
             </ListItemButton>

@@ -22,7 +22,7 @@ const Announcement = () => {
     <Box className="mb-6 bg-white rounded-lg drop-shadow-md pb-6">
       <Slider {...settings}>
         {data.data.map((item) => (
-          <SliderContent data={item}/>
+          <SliderContent data={item} key={item.title}/>
         ))}
       </Slider>
     </Box>

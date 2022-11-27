@@ -1,326 +1,320 @@
-export default {
-    "errcode": 0,
-    "errmsg": "请求成功",
-    "data": [
+const data = {
+  "errcode": 0,
+  "errmsg": "请求成功",
+  "data": [
       {
-        "id": 1832311,
-        "forum_id": 25,
-        "author": "超帅V",
-        "author_id": 218850,
-        "subject": "现在二手笔记本硬盘各容量大概啥价位",
-        "publish_time": 1608345819,
-        "last_reply_time": 1608345819,
-        "last_reply_user": "超帅V",
-        "views": 0,
-        "replies": 0,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
+          "forum_id": 73,
+          "name": "前程似锦",
+          "subordinates": [
+              {
+                  "forum_id": 19,
+                  "name": "音乐空间",
+                  "subordinates": [
+                      {
+                          "forum_id": 6,
+                          "name": "本科生讨论区",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 11,
+                  "name": "校园热点",
+                  "subordinates": [
+                      {
+                          "forum_id": 23,
+                          "name": "原创翻唱",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 92,
+                          "name": "鹊桥",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 11,
+                          "name": "设计艺术",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 40,
+                          "name": "职场交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 30,
+                          "name": "资源汇总",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 15,
+                  "name": "音乐空间",
+                  "subordinates": null
+              },
+              {
+                  "forum_id": 90,
+                  "name": "水手之家",
+                  "subordinates": [
+                      {
+                          "forum_id": 52,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 83,
+                          "name": "飞跃阁",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 9,
+                          "name": "天下足球",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 92,
+                          "name": "电子数码",
+                          "subordinates": null
+                      }
+                  ]
+              }
+          ]
       },
       {
-        "id": 1832310,
-        "forum_id": 25,
-        "author": "aprillll",
-        "author_id": 220452,
-        "subject": "今日出太阳了",
-        "publish_time": 1608345800,
-        "last_reply_time": 1608345822,
-        "last_reply_user": "aprillll",
-        "views": 1,
-        "replies": 1,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
+          "forum_id": 66,
+          "name": "休闲娱乐",
+          "subordinates": [
+              {
+                  "forum_id": 24,
+                  "name": "考试专区",
+                  "subordinates": [
+                      {
+                          "forum_id": 65,
+                          "name": "游戏资源",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 29,
+                          "name": "本科生讨论区",
+                          "subordinates": null
+                      }
+                  ]
+              }
+          ]
       },
       {
-        "id": 1832309,
-        "forum_id": 25,
-        "author": "滴，学生卡",
-        "author_id": 195744,
-        "subject": "刚才是不是502了",
-        "publish_time": 1608345619,
-        "last_reply_time": 1608345853,
-        "last_reply_user": "江南蜀汉皆成空",
-        "views": 19,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
+          "forum_id": 86,
+          "name": "生活信息",
+          "subordinates": [
+              {
+                  "forum_id": 73,
+                  "name": "成电锐评",
+                  "subordinates": null
+              },
+              {
+                  "forum_id": 56,
+                  "name": "二手专区",
+                  "subordinates": [
+                      {
+                          "forum_id": 4,
+                          "name": "程序员之家",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 62,
+                  "name": "保研考研",
+                  "subordinates": [
+                      {
+                          "forum_id": 7,
+                          "name": "游戏资源",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 7,
+                          "name": "本科生讨论区",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 31,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 65,
+                  "name": "吃喝玩乐",
+                  "subordinates": [
+                      {
+                          "forum_id": 17,
+                          "name": "游戏资源",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 55,
+                          "name": "原创翻唱",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 49,
+                          "name": "本科生讨论区",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 43,
+                          "name": "电子数码",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 31,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 14,
+                  "name": "吃喝玩乐",
+                  "subordinates": null
+              }
+          ]
       },
       {
-        "id": 1832308,
-        "forum_id": 61,
-        "author": "nadal",
-        "author_id": 183124,
-        "subject": "建设路伊藤食其家，乡村基现金券7折出",
-        "publish_time": 1608336623,
-        "last_reply_time": 1608336623,
-        "last_reply_user": "nadal",
-        "views": 0,
-        "replies": 0,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
+          "forum_id": 49,
+          "name": "科技学术",
+          "subordinates": [
+              {
+                  "forum_id": 97,
+                  "name": "考试专区",
+                  "subordinates": [
+                      {
+                          "forum_id": 69,
+                          "name": "游戏资源",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 90,
+                  "name": "音乐空间",
+                  "subordinates": null
+              }
+          ]
       },
       {
-        "id": 1832307,
-        "forum_id": 25,
-        "author": "wangwave",
-        "author_id": 235409,
-        "subject": "二两红星二锅头就晕什么水平",
-        "publish_time": 1608333050,
-        "last_reply_time": 1608345766,
-        "last_reply_user": "江南蜀汉皆成空",
-        "views": 113,
-        "replies": 9,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832306,
-        "forum_id": 25,
-        "author": "zyx143",
-        "author_id": 221417,
-        "subject": "研究生11月18号申请的中期答辩，会导致延期吗？",
-        "publish_time": 1608331711,
-        "last_reply_time": 1608337532,
-        "last_reply_user": "水知行",
-        "views": 165,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832305,
-        "forum_id": 25,
-        "author": "Voodoo",
-        "author_id": 219481,
-        "subject": "我是一个不会喝酒的酒鬼",
-        "publish_time": 1608318957,
-        "last_reply_time": 1608337090,
-        "last_reply_user": "清水河大帅比",
-        "views": 215,
-        "replies": 5,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832304,
-        "forum_id": 371,
-        "author": "",
-        "author_id": 229129,
-        "subject": "辅导员审核进出校",
-        "publish_time": 1608315601,
-        "last_reply_time": 1608315601,
-        "last_reply_user": "",
-        "views": 101,
-        "replies": 0,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832303,
-        "forum_id": 25,
-        "author": "猩红的魂球",
-        "author_id": 142732,
-        "subject": "本来约好了和网友面基",
-        "publish_time": 1608313395,
-        "last_reply_time": 1608322779,
-        "last_reply_user": "滴，学生卡",
-        "views": 328,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832302,
-        "forum_id": 174,
-        "author": "演员",
-        "author_id": 222373,
-        "subject": "offer求助    国网浙江电网VS南网广州局",
-        "publish_time": 1608312443,
-        "last_reply_time": 1608345824,
-        "last_reply_user": "小蟋蟀丶",
-        "views": 187,
-        "replies": 7,
-        "support": 1,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832301,
-        "forum_id": 25,
-        "author": "帅帅的居老师",
-        "author_id": 217413,
-        "subject": "现在去北京要隔离吗？",
-        "publish_time": 1608312281,
-        "last_reply_time": 1608322758,
-        "last_reply_user": "滴，学生卡",
-        "views": 57,
-        "replies": 1,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832300,
-        "forum_id": 305,
-        "author": "Coral孙小柒",
-        "author_id": 229997,
-        "subject": "刘丹雨同学，捡到了你的校园卡",
-        "publish_time": 1608312092,
-        "last_reply_time": 1608336949,
-        "last_reply_user": "拾君",
-        "views": 51,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832299,
-        "forum_id": 25,
-        "author": "黑框眼镜",
-        "author_id": 240841,
-        "subject": "日常一水",
-        "publish_time": 1608311259,
-        "last_reply_time": 1608334980,
-        "last_reply_user": "起个破名太麻烦",
-        "views": 22,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832298,
-        "forum_id": 25,
-        "author": "洛阳丶",
-        "author_id": 240839,
-        "subject": "牙疼睡不着",
-        "publish_time": 1608311159,
-        "last_reply_time": 1608317428,
-        "last_reply_user": "小小屌丝",
-        "views": 23,
-        "replies": 2,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832297,
-        "forum_id": 25,
-        "author": "蓝纸盒",
-        "author_id": 236038,
-        "subject": "最后水一水吧，mua畔友们",
-        "publish_time": 1608311013,
-        "last_reply_time": 1608317399,
-        "last_reply_user": "小小屌丝",
-        "views": 57,
-        "replies": 4,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832296,
-        "forum_id": 25,
-        "author": "小小屌丝",
-        "author_id": 240350,
-        "subject": "月亮不睡我不睡",
-        "publish_time": 1608310738,
-        "last_reply_time": 1608319757,
-        "last_reply_user": "且停子",
-        "views": 50,
-        "replies": 7,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832295,
-        "forum_id": 25,
-        "author": "damaoooo",
-        "author_id": 221205,
-        "subject": "写代码看pdf有必要上4k显示器吗",
-        "publish_time": 1608310404,
-        "last_reply_time": 1608338884,
-        "last_reply_user": "一叶秋",
-        "views": 246,
-        "replies": 6,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832294,
-        "forum_id": 61,
-        "author": "hcheung",
-        "author_id": 218779,
-        "subject": "收一台红米 K20 Pro，不要尊享版或 64G。有合适的沙河也行。",
-        "publish_time": 1608309729,
-        "last_reply_time": 1608338050,
-        "last_reply_user": "MinatoXeon",
-        "views": 70,
-        "replies": 3,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832293,
-        "forum_id": 25,
-        "author": "黄瓜说不要",
-        "author_id": 200815,
-        "subject": "高贵的VIP估计还剩十来个小时吧",
-        "publish_time": 1608309219,
-        "last_reply_time": 1608314809,
-        "last_reply_user": "sjabh",
-        "views": 105,
-        "replies": 7,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
-      },
-      {
-        "id": 1832292,
-        "forum_id": 25,
-        "author": "好事多磨",
-        "author_id": 235169,
-        "subject": "集思广益救救孩子",
-        "publish_time": 1608309205,
-        "last_reply_time": 1608310222,
-        "last_reply_user": "且停子",
-        "views": 139,
-        "replies": 3,
-        "support": 0,
-        "oppose": 0,
-        "favorite": 0,
-        "share": 0
+          "forum_id": 17,
+          "name": "成电校园",
+          "subordinates": [
+              {
+                  "forum_id": 80,
+                  "name": "音乐空间",
+                  "subordinates": [
+                      {
+                          "forum_id": 4,
+                          "name": "设计艺术",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 2,
+                          "name": "飞跃阁",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 9,
+                  "name": "就业创业",
+                  "subordinates": [
+                      {
+                          "forum_id": 87,
+                          "name": "飞跃阁",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 78,
+                          "name": "研究生讨论区",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 73,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 11,
+                          "name": "资源汇总",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 52,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 5,
+                  "name": "音乐空间",
+                  "subordinates": [
+                      {
+                          "forum_id": 98,
+                          "name": "鹊桥",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 35,
+                          "name": "LaTeX技术交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 90,
+                          "name": "本科生讨论区",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 21,
+                          "name": "资源汇总",
+                          "subordinates": null
+                      }
+                  ]
+              },
+              {
+                  "forum_id": 9,
+                  "name": "公考选调",
+                  "subordinates": [
+                      {
+                          "forum_id": 79,
+                          "name": "Matlab技术交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 4,
+                          "name": "电子数码",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 98,
+                          "name": "鹊桥",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 49,
+                          "name": "职场交流",
+                          "subordinates": null
+                      },
+                      {
+                          "forum_id": 80,
+                          "name": "设计艺术",
+                          "subordinates": null
+                      }
+                  ]
+              }
+          ]
       }
-    ]
-  }
+  ]
+}
+
+export default data.data
