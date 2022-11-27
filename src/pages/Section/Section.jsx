@@ -21,7 +21,7 @@ const BoxHeader = ({ text, Icon }) => {
   );
 };
 
-function Home() {
+function Section() {
   const [state, dispatch] = useAppState();
   const [tabIndex, setTabIndex] = useState(0)
 
@@ -65,4 +65,4 @@ function Home() {
     </Box>
   );
 }
-export default Home;
+export default Section;

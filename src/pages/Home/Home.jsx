@@ -4,11 +4,11 @@ import {
   List,
   Stack,
   Divider,
-  Tabs,
-  Tab,
   ListItemButton,
   Collapse,
-  ListItemText
+  Grid,
+  ListItemText,
+  Avatar,
 } from "@mui/material";
 import { useAppState } from "@/state";
 import { useEffect, useState } from "react";
@@ -16,11 +16,16 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
 import WhatshotIcon from "@mui/icons-material/Whatshot";
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
+import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 
 import moment from "moment";
 
-import Post from "@/components/Post";
 import data from "./test";
+import Chip from '@/components/Chip';
+import forumBg from "@/assets/login-bg1.jpg";
+import UserCard from '@/components/UserCard';
 
 const BoxHeader = ({ text, Icon }) => {
   return (
@@ -34,7 +39,43 @@ const BoxHeader = ({ text, Icon }) => {
   );
 };
 
-const menuFontStyle = {fontSize: '1.2rem'}
+const ForumCover = ({ data }) => {
+  return (
+    <Box
+      className="rounded p-4 relative"
+      style={{ backgroundImage: `url(${forumBg})` }}
+    >
+      <Box className="absolute bg-black rounded opacity-40 top-0 left-0 h-full w-full"></Box>
+      <Box className='relative z-10'>
+        <Typography className="text-white">{data.name}</Typography>
+        <Stack direction="row" className="mt-4">
+          <Stack direction="row" className="" alignItems="center" justifyContent="space-between"><RemoveRedEyeOutlinedIcon/><Typography className="pl-2 text-right">{data.views}</Typography></Stack>
+          <Stack direction="row" className="pl-6" alignItems="center" justifyContent="space-between"><ModeCommentOutlinedIcon/><Typography className="pl-2">{data.replies}</Typography></Stack>
+          <Stack direction="row" className="pl-6" alignItems="center" justifyContent="space-between"><ThumbUpAltOutlinedIcon/><Typography className="pl-2">{data.support}</Typography></Stack>
+        </Stack>
+        <Stack direction="row" className="mt-4">
+          <Box className="mr-4">
+            <Avatar
+              alt="Remy Sharp"
+              src="https://mui.com/static/images/avatar/1.jpg"
+              sx={{ width: 40, height: 40 }}
+              variant="rounded"
+            />
+          </Box>
+          <Box className="flex-1">
+            <Stack direction="row">
+              <Chip text={data.name}/>
+              <Typography>{data.name}</Typography>
+            </Stack>
+            <Typography>19分钟以前 <UserCard data={data}/></Typography>
+          </Box>
+        </Stack>
+      </Box>
+    </Box>
+  );
+};
+
+const menuFontStyle = { fontSize: "1.2rem" };
 const ForumGroup = ({ data }) => {
   const [open, setOpen] = useState(false);
 
@@ -44,18 +85,25 @@ const ForumGroup = ({ data }) => {
 
   return (
     <>
-      <ListItemButton className="rounded-lg drop-shadow-md" onClick={handleClick}>
-        <ListItemText primary={data.name} primaryTypographyProps={menuFontStyle} />
+      <ListItemButton
+        className="rounded-lg drop-shadow-md border-b-orange-50 border-b-2"
+        onClick={handleClick}
+      >
+        <ListItemText
+          primary={data.name}
+          primaryTypographyProps={menuFontStyle}
+        />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <Stack direction="row">
-          {data.subordinates.map((item) => (
-            <Box className="w-1/3" key={item.name}>
-              <Typography>{item.name}</Typography>
-            </Box>
+      <Box className="h-1 bg-blue-400 rounded-lg"></Box>
+      <Collapse in={open} timeout="auto" unmountOnExit className="p-4">
+        <Grid container spacing={2}>
+          {data.subordinates.map((item, index) => (
+            <Grid item xs={4} key={index}>
+              <ForumCover data={item} />
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
       </Collapse>
     </>
   );
@@ -76,7 +124,7 @@ function Home() {
 
   return (
     <Box className="flex">
-      <Box className="w-60 mr-6">
+      <Box className="hidden lg:block w-60 mr-6 ">
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="论坛统计" Icon={WhatshotIcon} />
           <List></List>

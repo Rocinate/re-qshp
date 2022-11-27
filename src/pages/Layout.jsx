@@ -7,6 +7,8 @@ import routes from "@/route";
 import Announcement from '@/components/Announcement'
 
 const Layout = () => {
+  useEff
+
   return (
     <>
       <Box className="relative h-full flex">

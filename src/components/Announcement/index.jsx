@@ -1,31 +1,40 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 
-import data from "./test";
-import Slider from "react-slick";
+import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
-const SliderContent = ({ data }) => {
+const SwiperContent = ({data}) => {
   return (
-    <Box className="p-6">
-      <Typography>{data.title}</Typography>
-    </Box>
+    <SwiperSlide>
+      <Box>{data.title}</Box>
+    </SwiperSlide>
   );
 };
 
 const Announcement = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    arrows: false
-  };
   return (
-    <Box className="mb-6 bg-white rounded-lg drop-shadow-md pb-6">
-      <Slider {...settings}>
-        {data.data.map((item) => (
-          <SliderContent data={item} key={item.title}/>
-        ))}
-      </Slider>
-    </Box>
+    <Stack direction="row" className="bg-white drop-shadow-md mb-6">
+        <Box className="bg-blue-400 flex items-center p-4">
+          <Typography className="text-white text-lg font-bold">公告</Typography>
+        </Box>
+        <Swiper
+        // install Swiper modules
+        modules={[ Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+        className="h-20 p-6"
+      >
+        <SwiperSlide className='h-full'><Typography>Slide 1</Typography></SwiperSlide>
+        <SwiperSlide className='h-full'><Typography>Slide 2</Typography></SwiperSlide>
+        <SwiperSlide className='h-full'><Typography>Slide 3</Typography></SwiperSlide>
+        <SwiperSlide className='h-full'><Typography>Slide 4</Typography></SwiperSlide>
+      </Swiper>
+    </Stack>
   );
 };
 

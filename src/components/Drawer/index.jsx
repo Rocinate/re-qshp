@@ -120,7 +120,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const LeftDrawer = () => {
-    const theme = useTheme()
+  const theme = useTheme()
   const [state, dispatch] = useAppState();
 
   return (
