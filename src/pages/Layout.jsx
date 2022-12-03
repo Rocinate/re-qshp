@@ -1,4 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { useAppState } from "@/state";
+import { useQuery } from 'react-query'
+import { getForumList } from '@/apis/common'
 
 import { Box, Toolbar } from "@mui/material";
 import TopBar from "@/components/TopBar";
@@ -7,7 +10,18 @@ import routes from "@/route";
 import Announcement from '@/components/Announcement'
 
 const Layout = () => {
-  useEff
+  const {isLoading} = useQuery(
+    ['formList'],
+    () => getForumList(),
+    {
+      // catchTime: 60 * 1000,
+      // staleTime: 30 * 1000
+      onSuccess: (data) => {
+        // 对板块信息进行处理，得到嵌套的板块关系
+        // console.log(data)
+      }
+    }
+  )
 
   return (
     <>

@@ -6,7 +6,14 @@ import useAppStateContext, { AppContext } from "./state";
 import Layout from "./pages/Layout"
 import moment from "./utils/moment"
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false
+    }
+  }
+})
 
 function App() {
   const [state, dispatch] = useAppStateContext()

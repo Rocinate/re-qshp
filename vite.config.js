@@ -16,7 +16,7 @@ export default defineConfig({
     port: 5700,
     proxy: {
       '/dev' : {
-        target: 'http://bbs.abrac.site',
+        target: 'http://121.4.126.180:8081',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev/, '')
       }
