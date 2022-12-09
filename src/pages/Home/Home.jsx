@@ -29,6 +29,7 @@ import Chip from "@/components/Chip";
 import forumBg from "@/assets/login-bg1.jpg";
 import UserCard from "@/components/UserCard";
 import { getHotThread } from "@/apis/common";
+import Post from "@/components/Post";
 
 const BoxHeader = ({ text, Icon }) => {
   return (
@@ -110,7 +111,7 @@ const ForumCover = ({ data }) => {
 
 const menuFontStyle = { fontSize: "1.2rem" };
 const ForumGroup = ({ data }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleClick = () => {
     setOpen(!open);
@@ -144,22 +145,10 @@ const ForumGroup = ({ data }) => {
 
 function Home() {
   const [state, dispatch] = useAppState();
-  const [tabIndex, setTabIndex] = useState(0);
-  const { hot, isLoading } = useQuery(
+  const { data: hot, isLoading } = useQuery(
     ["hotThread"],
-    () => getHotThread({ forum_id: 0 }),
-    {
-    //   // catchTime: 60 * 1000,
-    //   // staleTime: 30 * 1000
-      onSuccess: (data) => {
-        // 对板块信息进行处理，得到嵌套的板块关系
-        console.log(data)
-
-      }
-    }
+    () => getHotThread({ forum_id: 0 })
   );
-
-
 
   useEffect(() => {
     console.log(moment().format("LLLL"));
@@ -167,31 +156,23 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    console.log(hot)
-  }, [isLoading])
-
-  const handleTabClick = (event, newValue) => {
-    setTabIndex(newValue);
-  };
+    console.log(hot);
+  }, [isLoading]);
 
   return (
     <Box className="flex">
+      
+      <Box className="flex-1">
+        <List>
+          {data.map((item, index) => (
+            <ForumGroup data={item} key={item.name} />
+          ))}
+        </List>
+      </Box>
       <Box className="hidden lg:block w-60 mr-6 ">
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="论坛统计" Icon={WhatshotIcon} />
           <List></List>
-        </Box>
-        <Box className="rounded-lg drop-shadow-md mb-6">
-          <BoxHeader text="今日热门" Icon={WhatshotIcon} />
-          <List>
-            {isLoading ? (
-              <Typography>none</Typography>
-            ) : (
-              hot.threads.map((item) => {
-                <Post data={item} key={item.tid} />;
-              })
-            )}
-          </List>
         </Box>
         <Box className="rounded-lg drop-shadow-md">
           <BoxHeader text="热门分类" Icon={WhatshotIcon} />
@@ -199,21 +180,23 @@ function Home() {
             {isLoading ? (
               <Typography>None</Typography>
             ) : (
-              hot.forums.map((item) => {
-                <ListItem>
-                  <ListItemText>{item.name}</ListItemText>
-                </ListItem>;
-              })
+              hot.forums.map((item) => (
+                  <Typography>{item.name}</Typography>
+              ))
             )}
           </List>
         </Box>
-      </Box>
-      <Box className="flex-1">
-        <List>
-          {data.map((item, index) => (
-            <ForumGroup data={item} key={item.name} />
-          ))}
-        </List>
+        <Box className="rounded-lg drop-shadow-md mb-6">
+          <BoxHeader text="今日热门" Icon={WhatshotIcon} />
+          <List>
+            {isLoading ? (
+              <Typography>none</Typography>
+            ) : (
+              // hot.threads.length
+              hot.threads.map((item) => <Post small data={item} key={item.tid} />)
+            )}
+          </List>
+        </Box>
       </Box>
     </Box>
   );

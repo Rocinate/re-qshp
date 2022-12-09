@@ -10,6 +10,7 @@ import routes from "@/route";
 import Announcement from '@/components/Announcement'
 
 const Layout = () => {
+  const [state, dispatch] = useAppState();
   const {isLoading} = useQuery(
     ['formList'],
     () => getForumList(),
@@ -18,6 +19,10 @@ const Layout = () => {
       // staleTime: 30 * 1000
       onSuccess: (data) => {
         // 对板块信息进行处理，得到嵌套的板块关系
+        dispatch({
+          type: 'set navlist',
+          payload: data
+        })
         // console.log(data)
       }
     }

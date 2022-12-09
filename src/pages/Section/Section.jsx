@@ -41,10 +41,6 @@ function Section() {
           <BoxHeader text="今日热门" Icon={WhatshotIcon} />
           <List></List>
         </Box>
-        <Box className="bg-white rounded-lg drop-shadow-md">
-          <BoxHeader text="热门分类" Icon={WhatshotIcon} />
-          <List></List>
-        </Box>
       </Box>
       <Box className="flex-1">
         <Box className="bg-white rounded-lg drop-shadow-md">
