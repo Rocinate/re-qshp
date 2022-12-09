@@ -161,7 +161,6 @@ function Home() {
 
   return (
     <Box className="flex">
-      
       <Box className="flex-1">
         <List>
           {data.map((item, index) => (
@@ -169,7 +168,7 @@ function Home() {
           ))}
         </List>
       </Box>
-      <Box className="hidden lg:block w-60 mr-6 ">
+      <Box className="hidden lg:block w-60 ml-6 ">
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="论坛统计" Icon={WhatshotIcon} />
           <List></List>
@@ -193,7 +192,7 @@ function Home() {
               <Typography>none</Typography>
             ) : (
               // hot.threads.length
-              hot.threads.map((item) => <Post small data={item} key={item.tid} />)
+              hot.threads.map((item) => <Post small data={item} key={item.tid} className="mb-4"/>)
             )}
           </List>
         </Box>

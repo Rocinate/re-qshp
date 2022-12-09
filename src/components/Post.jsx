@@ -7,15 +7,15 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 
-const Post = ({ data, small }) => {
+const Post = ({ data, small, className}) => {
   return (
-    <Box className={small ? "" : "p-6"}>
+    <Box className={small ? className : `${className} p-6`}>
       <Stack direction="row">
         <Box sx={{ mr: 2 }}>
           <Avatar
             alt="Remy Sharp"
             src="https://mui.com/static/images/avatar/1.jpg"
-            sx={small ? { width: 30, height: 30 } : { width: 54, height: 54 }}
+            sx={small ? { width: 35, height: 35 } : { width: 54, height: 54 }}
             variant="rounded"
           />
         </Box>
