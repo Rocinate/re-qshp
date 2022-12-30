@@ -19,13 +19,13 @@ function App() {
   const [state, dispatch] = useAppStateContext()
 
   useEffect(() => {
-    const baseCatch = localStorage.getItem("base_catch")
+    const baseCache = localStorage.getItem("base_cache")
 
-    if (!baseCatch) {
+    if (!baseCache) {
       return;
     }
 
-    if (moment(baseCatch.expire).isBefore(moment().add(1, 'h'))) {
+    if (moment(baseCache.expire).isBefore(moment().add(1, 'h'))) {
       // refreshCookie()
     }
   })

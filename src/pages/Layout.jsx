@@ -20,9 +20,11 @@ const Layout = () => {
       onSuccess: (data) => {
         // 对板块信息进行处理，得到嵌套的板块关系
         dispatch({
-          type: 'set navlist',
-          payload: data
+          type: 'set navList',
+          payload: data.group
         })
+
+        console.log(data.group)
         // console.log(data)
       }
     }

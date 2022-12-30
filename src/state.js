@@ -6,7 +6,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         messages: { unread_count: 0 },
-        navlist: [],
+        navList: [],
         users: { uid: '', name: '' },
       };
     case "set user": {
@@ -31,8 +31,8 @@ const reducer = (state, action) => {
         messages: {unread_count: 0}
       };
     }
-    case 'set navlist':
-      return { ...state, navlist: action.payload};
+    case 'set navList':
+      return { ...state, navList: action.payload};
     case 'set theme': 
       return {...state, theme: action.payload}
     case 'set drawer':

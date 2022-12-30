@@ -13,10 +13,10 @@ export default defineConfig({
     }
   },
   server: {
-    port: 5700,
+    port: 5900,
     proxy: {
       '/dev' : {
-        target: 'http://121.4.126.180:8081',
+        target: 'http://121.4.126.180:8080',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev/, '')
       }

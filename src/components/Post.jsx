@@ -22,7 +22,7 @@ const Post = ({ data, small, className}) => {
         <Box className="flex-1">
           <Stack justifyContent="space-between">
             <Stack direction="row">
-              <Typography><Chip small={small} text="等级" />{data.subject}</Typography>
+              <Box><Chip small={small} text="等级" />{data.subject}</Box>
             </Stack>
             <Stack direction="row">
               <UserCard data={data} />

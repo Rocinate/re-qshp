@@ -7,9 +7,13 @@ export const getForumList = (params) => {
 }
 
 export const getBulletin = (params) => {
-    return request.get(`${commonUrl}/forum/bulletin`, {params: params})
+    return request.get(`${commonUrl}/thread/bulletin`, {params: params})
 }
 
 export const getHotThread = (params) => {
     return request.post(`${commonUrl}/thread/hot`, params)
+}
+
+export const getBBSInfo = (params) => {
+    return request.get(`${commonUrl}/forum/bbs-info`)
 }

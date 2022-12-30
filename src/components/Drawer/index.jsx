@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 
 import MuiDrawer from "@mui/material/Drawer";
-import data from "./test";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
@@ -46,7 +45,7 @@ const Ordinate = ({ data }) => {
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {data.subordinates.map((item) => (
+          {data.forums.map((item) => (
             <ListItemButton sx={{ pl: 4 }} key={item.name} onClick={selectSection}>
               <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
               <ListItemText primary={item.name} primaryTypographyProps={menuFontStyle} />
@@ -58,7 +57,7 @@ const Ordinate = ({ data }) => {
   );
 };
 
-const Sections = () => {
+const Sections = ({data}) => {
   const toHome = () => {
     console.log("toHome");
   };
@@ -134,7 +133,7 @@ const LeftDrawer = () => {
       <Box>
         <Toolbar />
         {/* {loading} */}
-        <Sections />
+        <Sections data={state.navList}/>
       </Box>
     </Drawer>
   );

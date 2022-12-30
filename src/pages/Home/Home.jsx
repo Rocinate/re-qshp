@@ -24,11 +24,10 @@ import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 
 import moment from "moment";
 
-import data from "./test";
 import Chip from "@/components/Chip";
 import forumBg from "@/assets/login-bg1.jpg";
 import UserCard from "@/components/UserCard";
-import { getHotThread } from "@/apis/common";
+import { getHotThread, getBBSInfo } from "@/apis/common";
 import Post from "@/components/Post";
 
 const BoxHeader = ({ text, Icon }) => {
@@ -82,7 +81,7 @@ const ForumCover = ({ data }) => {
             justifyContent="space-between"
           >
             <ThumbUpAltOutlinedIcon />
-            <Typography className="pl-2">{data.support}</Typography>
+            <Typography className="pl-2">{data.favtimes}</Typography>
           </Stack>
         </Stack>
         <Stack direction="row" className="mt-4">
@@ -96,11 +95,13 @@ const ForumCover = ({ data }) => {
           </Box>
           <Box className="flex-1">
             <Stack direction="row">
-              <Chip text={data.name} />
-              <Typography>{data.name}</Typography>
+              <Box className="line-clamp-1">
+                <Chip text={data.name} />
+                {data.subject}
+              </Box>
             </Stack>
             <Typography>
-              19分钟以前 <UserCard data={data} />
+              {moment(data.dateline * 1000).calendar()} <UserCard data={data} />
             </Typography>
           </Box>
         </Stack>
@@ -132,7 +133,7 @@ const ForumGroup = ({ data }) => {
       <Box className="h-1 bg-blue-400 rounded-lg"></Box>
       <Collapse in={open} timeout="auto" unmountOnExit className="p-4">
         <Grid container spacing={2}>
-          {data.subordinates.map((item, index) => (
+          {data.forums.map((item, index) => (
             <Grid item xs={4} key={index}>
               <ForumCover data={item} />
             </Grid>
@@ -145,25 +146,19 @@ const ForumGroup = ({ data }) => {
 
 function Home() {
   const [state, dispatch] = useAppState();
-  const { data: hot, isLoading } = useQuery(
-    ["hotThread"],
-    () => getHotThread({ forum_id: 0 })
+  const { data: hot, isLoading } = useQuery(["hotThread"], () =>
+    getHotThread({ forum_id: 0 })
   );
 
-  useEffect(() => {
-    console.log(moment().format("LLLL"));
-    console.log(moment().valueOf());
-  }, []);
-
-  useEffect(() => {
-    console.log(hot);
-  }, [isLoading]);
+  const { data: info, isLoading: infoLoading } = useQuery(["bbsInfo"], () =>
+    getBBSInfo()
+  );
 
   return (
     <Box className="flex">
       <Box className="flex-1">
         <List>
-          {data.map((item, index) => (
+          {state.navList.map((item, index) => (
             <ForumGroup data={item} key={item.name} />
           ))}
         </List>
@@ -171,7 +166,10 @@ function Home() {
       <Box className="hidden lg:block w-60 ml-6 ">
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="论坛统计" Icon={WhatshotIcon} />
-          <List></List>
+          <Box className="p-3">
+            <Typography>今日：{infoLoading ? (<></>) : (info.todayposts)}</Typography>
+            <Typography>昨日：{infoLoading ? (<></>) : (info.yesterdayposts)}</Typography>
+          </Box>
         </Box>
         <Box className="rounded-lg drop-shadow-md">
           <BoxHeader text="热门分类" Icon={WhatshotIcon} />
@@ -179,9 +177,7 @@ function Home() {
             {isLoading ? (
               <Typography>None</Typography>
             ) : (
-              hot.forums.map((item) => (
-                  <Typography>{item.name}</Typography>
-              ))
+              hot.threads.map((item) => <Typography>{item.name}</Typography>)
             )}
           </List>
         </Box>
@@ -192,7 +188,9 @@ function Home() {
               <Typography>none</Typography>
             ) : (
               // hot.threads.length
-              hot.threads.map((item) => <Post small data={item} key={item.tid} className="mb-4"/>)
+              hot.threads.map((item) => (
+                <Post small data={item} key={item.tid} className="mb-4" />
+              ))
             )}
           </List>
         </Box>
