@@ -1,11 +1,13 @@
 import { Box, Typography, List, Stack, Divider, Tabs, Tab } from "@mui/material";
 import { useAppState } from "@/state";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"
 
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 
 import moment from 'moment'
 
+// import { getThreadList } from '@/apis/common'
 import Post from '@/components/Post'
 import data from './test'
 
@@ -21,13 +23,16 @@ const BoxHeader = ({ text, Icon }) => {
   );
 };
 
-function Section() {
+function Forum() {
   const [state, dispatch] = useAppState();
   const [tabIndex, setTabIndex] = useState(0)
+  const routeParam = useParams()
+  // const {data: threadList, isLoading} = useQuery(['getThread', () => getThreadList({forum_id: routeParam.fid})])
 
   useEffect(() => {
     console.log(moment().format('LLLL'))
     console.log(moment().valueOf())
+    // console.log(routeParam)
   }, [])
 
   const handleTabClick = (event, newValue) => {
@@ -61,4 +66,4 @@ function Section() {
     </Box>
   );
 }
-export default Section;
+export default Forum;

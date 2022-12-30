@@ -1,6 +1,7 @@
 import Home from "@/pages/Home/Home";
 import NotFound from '@/pages/ErrorPage/NotFound'
-import Section from "@/pages/Section/Section";
+import Forum from "@/pages/Forum";
+import Thread from '@/pages/Thread';
 
 const routes = [
     {
@@ -20,8 +21,12 @@ const routes = [
     //   component: Article,
     // },
     {
-      path: '/section/:section',
-      component: Section,
+      path: '/forum/:fid',
+      component: Forum,
+    },
+    {
+      path: '/thread/:tid',
+      component: Thread
     },
     {
       path: '*',

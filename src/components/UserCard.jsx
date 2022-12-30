@@ -33,8 +33,7 @@ const UserCard = ({ data }) => {
                       />
                     </Box>
                     <Box className="p-5 text-white">
-                      <Typography>{data.author}</Typography>
-                      <Box className="flex"><Chip text={data.author}/></Box>
+                      <Box><Chip text={data.author}/>{data.author}</Box>
                       <Typography>这个人太懒了，什么都没有写</Typography>
                     </Box>
                   </Stack>

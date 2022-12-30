@@ -23,6 +23,7 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 import Chip from "@/components/Chip";
 import forumBg from "@/assets/login-bg1.jpg";
@@ -54,11 +55,12 @@ const ForumCover = ({ data }) => {
     >
       <Box className="absolute bg-black rounded opacity-40 top-0 left-0 h-full w-full"></Box>
       <Box className="relative z-10">
-        <Typography>{data.name}</Typography>
+        <Typography>
+          <Link to={`/forum/${data.fid}`}>{data.name}</Link>
+        </Typography>
         <Stack direction="row" className="mt-4">
           <Stack
             direction="row"
-            className=""
             alignItems="center"
             justifyContent="space-between"
           >
@@ -95,14 +97,16 @@ const ForumCover = ({ data }) => {
           </Box>
           <Box className="flex-1">
             <Stack direction="row">
-              <Box className="line-clamp-1">
-                <Chip text={data.name} />
-                {data.subject}
-              </Box>
+              <Link to={`/thread/${data.tid}`}>
+                <Box className="line-clamp-1">
+                  <Chip text={data.name} />
+                  {data.subject}
+                </Box>
+              </Link>
             </Stack>
-            <Typography>
+            <Box>
               {moment(data.dateline * 1000).calendar()} <UserCard data={data} />
-            </Typography>
+            </Box>
           </Box>
         </Stack>
       </Box>
@@ -167,19 +171,27 @@ function Home() {
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="论坛统计" Icon={WhatshotIcon} />
           <Box className="p-3">
-            <Typography>今日：{infoLoading ? (<></>) : (info.todayposts)}</Typography>
-            <Typography>昨日：{infoLoading ? (<></>) : (info.yesterdayposts)}</Typography>
+            <Typography>
+              今日：{infoLoading ? <></> : info.todayposts}
+            </Typography>
+            <Typography>
+              昨日：{infoLoading ? <></> : info.yesterdayposts}
+            </Typography>
           </Box>
         </Box>
         <Box className="rounded-lg drop-shadow-md">
           <BoxHeader text="热门分类" Icon={WhatshotIcon} />
-          <List>
-            {isLoading ? (
+          <Box className="p-3">
+            {infoLoading ? (
               <Typography>None</Typography>
             ) : (
-              hot.threads.map((item) => <Typography>{item.name}</Typography>)
+              info.forums.map((item) => (
+                <Typography key={item.name}>
+                  <Link to={`/forum/${item.fid}`}>{item.name}</Link>
+                </Typography>
+              ))
             )}
-          </List>
+          </Box>
         </Box>
         <Box className="rounded-lg drop-shadow-md mb-6">
           <BoxHeader text="今日热门" Icon={WhatshotIcon} />

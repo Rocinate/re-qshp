@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { Link } from 'react-router-dom'
+
 import { useAppState } from "@/state";
 import UserMenu from "./UserMenu";
 import Message from './Message';
@@ -69,7 +71,7 @@ const TopBar = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          logo 清水河畔
+          <Link to="/">logo 清水河畔</Link>
         </Stack>
         <Stack direction="row" justifyContent="center" className="basis-1/2">
           <Search />

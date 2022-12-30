@@ -23,9 +23,6 @@ const Layout = () => {
           type: 'set navList',
           payload: data.group
         })
-
-        console.log(data.group)
-        // console.log(data)
       }
     }
   )

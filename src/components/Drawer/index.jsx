@@ -11,7 +11,7 @@ import {
   Skeleton,
   styled,
   Collapse,
-  useTheme
+  useTheme,
 } from "@mui/material";
 
 import MuiDrawer from "@mui/material/Drawer";
@@ -23,7 +23,8 @@ import { useAppState } from "@/state";
 import { theme } from "../../constant";
 import { BoltRounded } from "@mui/icons-material";
 
-const menuFontStyle = {fontSize: '1rem',fontWeight: 'bold'}
+import { Link } from "react-router-dom";
+const menuFontStyle = { fontSize: "1rem", fontWeight: "bold" };
 
 const Ordinate = ({ data }) => {
   const [open, setOpen] = useState(false);
@@ -32,24 +33,28 @@ const Ordinate = ({ data }) => {
     setOpen(!open);
   };
 
-  const selectSection = () => {
-  
-  }
-
   return (
     <>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
-        <ListItemText primary={data.name} primaryTypographyProps={menuFontStyle} />
+        <ListItemText
+          primary={data.name}
+          primaryTypographyProps={menuFontStyle}
+        />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {data.forums.map((item) => (
-            <ListItemButton sx={{ pl: 4 }} key={item.name} onClick={selectSection}>
-              <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
-              <ListItemText primary={item.name} primaryTypographyProps={menuFontStyle} />
-            </ListItemButton>
+            <Link to={`/forum/${item.fid}`} key={item.name}>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
+                <ListItemText
+                  primary={item.name}
+                  primaryTypographyProps={menuFontStyle}
+                />
+              </ListItemButton>
+            </Link>
           ))}
         </List>
       </Collapse>
@@ -57,21 +62,32 @@ const Ordinate = ({ data }) => {
   );
 };
 
-const Sections = ({data}) => {
-  const toHome = () => {
-    console.log("toHome");
-  };
-
+const Sections = ({ data }) => {
   return (
     <>
       {data.length === 0 ? (
-        <Typography>加载失败</Typography>
+        <List>
+          <ListItem>
+            <Skeleton className="w-full" height={32}></Skeleton>
+          </ListItem>
+          <ListItem>
+            <Skeleton className="w-full" height={32}></Skeleton>
+          </ListItem>
+          <ListItem>
+            <Skeleton className="w-full" height={32}></Skeleton>
+          </ListItem>
+        </List>
       ) : (
         <List>
-          <ListItemButton onClick={toHome}>
-            <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
-            <ListItemText primary="首页" primaryTypographyProps={menuFontStyle}/>
-          </ListItemButton>
+          <Link to="/">
+            <ListItemButton>
+              <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
+              <ListItemText
+                primary="首页"
+                primaryTypographyProps={menuFontStyle}
+              />
+            </ListItemButton>
+          </Link>
           {data.map((item) => (
             <Ordinate key={item.name} data={item} />
           ))}
@@ -119,21 +135,25 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const LeftDrawer = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   const [state, dispatch] = useAppState();
 
   return (
-    <Drawer variant="permanent" open={state.drawer} PaperProps={{
+    <Drawer
+      variant="permanent"
+      open={state.drawer}
+      PaperProps={{
         sx: {
-            background: "#e2e8f0",
-            border: "none",
-            color: '#7082a7'
-        }
-    }}>
+          background: "#e2e8f0",
+          border: "none",
+          color: "#7082a7",
+        },
+      }}
+    >
       <Box>
         <Toolbar />
         {/* {loading} */}
-        <Sections data={state.navList}/>
+        <Sections data={state.navList} />
       </Box>
     </Drawer>
   );

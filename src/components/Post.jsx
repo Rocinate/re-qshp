@@ -1,4 +1,5 @@
 import { Box, Typography, Avatar, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import moment from "moment";
 import Chip from "./Chip";
@@ -7,7 +8,7 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 
-const Post = ({ data, small, className}) => {
+const Post = ({ data, small, className }) => {
   return (
     <Box className={small ? className : `${className} p-6`}>
       <Stack direction="row">
@@ -22,7 +23,12 @@ const Post = ({ data, small, className}) => {
         <Box className="flex-1">
           <Stack justifyContent="space-between">
             <Stack direction="row">
-              <Box><Chip small={small} text="等级" />{data.subject}</Box>
+              <Link to={`/thread/${data.tid}`}>
+                <Box>
+                  <Chip small={small} text="等级" />
+                  {data.subject}
+                </Box>
+              </Link>
             </Stack>
             <Stack direction="row">
               <UserCard data={data} />
